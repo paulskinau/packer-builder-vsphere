@@ -26,7 +26,8 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 	d := state.Get("driver").(*driver.Driver)
 
 	if floppyPath, ok := state.GetOk("floppy_path"); ok {
-		ui.Say("Uploading created floppy image")
+		ui.Say("Uploading created floppy image!")
+		ui.Say("fmt.Sprintf("floppy_path = %s", floppy_path))
 
 		ds, err := d.FindDatastore(s.Datastore, s.Host)
 		ui.Say(fmt.Sprintf("Data Store = %s. Host = %s", s.Datastore, s.Host))
