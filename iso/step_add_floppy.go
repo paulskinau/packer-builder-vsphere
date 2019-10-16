@@ -29,7 +29,7 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 		ui.Say("Uploading created floppy image")
 
 		ds, err := d.FindDatastore(s.Datastore, s.Host)
-		ui.Say(fmt.sprintf("Data Store = %s. Host = %s", s.Datastore, s.Host))
+		ui.Say(fmt.Sprintf("Data Store = %s. Host = %s", s.Datastore, s.Host))
 		
 		if err != nil {
 			state.Put("error", err)
@@ -42,7 +42,7 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 		}
 
 		uploadPath := fmt.Sprintf("%v/packer-tmp-created-floppy.flp", vmDir)
-		ui.Say(fmt.sprintf("Upload path = %s", uploadPath))
+		ui.Say(fmt.Sprintf("Upload path = %s", uploadPath))
 
 		if err := ds.UploadFile(floppyPath.(string), uploadPath, s.Host); err != nil {
 			state.Put("error", err)
