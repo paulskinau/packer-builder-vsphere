@@ -8,3 +8,5 @@ jobs:
      # with credentials stored in the UI
      - run: |
          docker-compose run build
+     - store_artifacts:
+         path: bin
