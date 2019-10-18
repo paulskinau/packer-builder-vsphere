@@ -46,7 +46,7 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 		ui.Say(fmt.Sprintf("Upload path = %s. floppyPath=%s", uploadPath, floppyPath.(string)))
 		
 		if ds.FileExists(fmt.Sprintf("%v", vmDir)) {
-			ui.Say(fmt.Sptintf("%v does exist on the datastore", vmDir))
+			ui.Say(fmt.Sprintf("%v does exist on the datastore", vmDir))
 		} else {
 			ui.Say(fmt.Sprintf("%v does not exist on the datastore", vmDir))
 		}
