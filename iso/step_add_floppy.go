@@ -45,6 +45,10 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 		uploadPath := fmt.Sprintf("%v/packer-tmp-created-floppy.flp", vmDir)
 		ui.Say(fmt.Sprintf("Upload path = %s. floppyPath=%s", uploadPath, floppyPath.(string)))
 		
+		ui.Say("Checking file on server")
+
+		ui.Say(fmt.Sprintf("Checking file in folder %v", vmDir)) 
+			
 		if ds.FileExists(fmt.Sprintf("%v", vmDir)) {
 			ui.Say(fmt.Sprintf("%v does exist on the datastore", vmDir))
 		} else {
