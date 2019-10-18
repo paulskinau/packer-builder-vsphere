@@ -51,6 +51,8 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 			ui.Say(fmt.Sprintf("%v does not exist on the datastore", vmDir))
 		}
 
+		ui.Say("About to upload file...")
+		
 		if err := ds.UploadFile(floppyPath.(string), uploadPath, s.Host); err != nil {
 			state.Put("error", err)
 			return multistep.ActionHalt
