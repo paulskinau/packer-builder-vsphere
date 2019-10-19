@@ -63,7 +63,8 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 
 		ui.Say("About to upload file to datastore...")
 		
-		if err := ds.UploadFile(floppyPath.(string), uploadPath, s.Host); err != nil {
+		if loc, err := ds.UploadFile(floppyPath.(string), uploadPath, s.Host); err != nil {
+			ui.Say(fmt.Sprintf("error was at -> %s", loc))
 			state.Put("error", err)
 			return multistep.ActionHalt
 		}
