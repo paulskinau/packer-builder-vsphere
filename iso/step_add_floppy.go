@@ -56,9 +56,9 @@ func (s *StepAddFloppy) Run(_ context.Context, state multistep.StateBag) multist
 		}
 
 		if ds.FileExists(uploadPath) {
-			ui.Say(fmt.Sprintf("%s does exist on the datastore", uploadPath);
+			ui.Say(fmt.Sprintf("%s does exist on the datastore", uploadPath))
 		} else {
-			ui.Say(fmt.Sprintf("%s does NOT exist on the datastore", uploadPath);
+			ui.Say(fmt.Sprintf("%s does NOT exist on the datastore", uploadPath))
 		}
 
 		ui.Say("About to upload file to datastore...")
