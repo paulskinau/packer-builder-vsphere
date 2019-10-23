@@ -96,7 +96,7 @@ func (ds *Datastore) UploadFile2(src, dst string, host string) (string, error) {
                 ctx = ds.ds.HostContext(ctx, h.host)
         }
 
-        return "Upload File Step", ds.ds.UploadFile(ctx, src, dst, &p)
+        return fmt.Sprintf("Upload File Step %s->%s", src,dst), ds.ds.UploadFile(ctx, src, dst, &p)
 }
 
 func (ds *Datastore) UploadFile(src, dst string, host string) error {
